@@ -5,7 +5,8 @@ import connectDB from "./config/db.js"
 import { notFound, errorHandler } from "./middleware/ErrorMiddleware.js";
 
 import productRoutes from './routes/ProductRoutes.js'
-import userRoutes from "./routes/UserRoutes.js";
+import userRoutes from "./routes/UserRoutes.js"
+import orderRoutes from "./routes/OrderRoutes.js";
 
 dotenv.config()
 connectDB()
@@ -18,6 +19,8 @@ app.listen(_PORT_, console.log(`Server running in ${process.env.NODE_ENV} mode o
 
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/orders', orderRoutes)
+
 
 app.use(notFound)
 app.use(errorHandler)
