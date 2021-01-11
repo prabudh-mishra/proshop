@@ -22,12 +22,8 @@ const orderSchema = mongoose.Schema({
     shippingAddress: {
         address: { type: String, required: true },
         city: { type: String, required: true },
-        zip: { type: String, required: true },
+        postalCode: { type: String, required: true },
         country: { type: String, required: true }
-    },
-    description: {
-        type: String,
-        required: true
     },
     paymentMethod: {
         type: String,
@@ -45,12 +41,12 @@ const orderSchema = mongoose.Schema({
         default: 0.0
     },
     shippingPrice: {
-        type: String,
+        type: Number,
         required: true,
         default: 0.0
     },
     totalPrice: {
-        type: String,
+        type: Number,
         required: true,
         default: 0.0
     },
@@ -69,7 +65,10 @@ const orderSchema = mongoose.Schema({
     },
     deliveredAt: {
         type: Date,
-    }
+    },
+    description: {
+        type: String
+    },
 }, {
     timestamps: true
 })
